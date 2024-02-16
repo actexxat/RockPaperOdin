@@ -1,11 +1,19 @@
 "use strict";
-let scorePC = 0;
-let scorePL = 0;
+let scorePCcount = 0;
+let scorePLcount = 0;
 let scorePc = document.getElementsByTagName("h2")[0];
 let scorePl = document.getElementsByTagName("h2")[1];
 const btns = document.getElementsByTagName("button");
 const h1 = document.getElementsByTagName("h1")[0];
 const reset = document.querySelector(".reset");
+
+const WIN = {
+  'rock': 'scissors',
+  'paper': 'rock',
+  'scissors': 'paper',
+}
+
+
 Array.from(btns).forEach((btn) => btn.addEventListener("click", playerChoice));
 reset.addEventListener("click", resetGame);
 
@@ -13,14 +21,14 @@ function resetGame() {
   btns[0].disabled = false;
   btns[1].disabled = false;
   btns[2].disabled = false;
-  scorePC = 0;
-  scorePL = 0;
+  scorePCcount = 0;
+  scorePLcount = 0;
   scorePc.textContent = "-";
   scorePl.textContent = "-";
   h1.textContent = "Game On!";
 }
 
-function playerChoice() {
+function playerChoice(event) {
   let yourPlay = event.target.className;
   game(yourPlay);
 }
@@ -37,36 +45,21 @@ function game(yourPlay) {
   console.log(choice, yourPlay);
   if (yourPlay == choice) {
     h1.textContent = "Draw";
-  } else if (yourPlay == "rock" && choice == "paper") {
-    h1.textContent = "Computer Wins!!";
-    scorePC++;
-    scorePc.textContent = `PC Score: ${scorePC}`;
-  } else if (yourPlay == "paper" && choice == "rock") {
+  } else if (WIN[yourPlay] ==  choice) {
     h1.textContent = "You Win!!";
-    scorePL++;
-    scorePl.textContent = `Player Score: ${scorePL}`;
-  } else if (yourPlay == "scissors" && choice == "paper") {
-    h1.textContent = "You Win!";
-    scorePL++;
-    scorePl.textContent = `Player Score: ${scorePL}`;
-  } else if (yourPlay == "paper" && choice == "scissors") {
-    h1.textContent = "Computer Wins!";
-    scorePC++;
-    scorePc.textContent = `PC Score: ${scorePC}`;
-  } else if (yourPlay == "rock" && choice == "scissors") {
-    h1.textContent = "You Win!";
-    scorePL++;
-    scorePl.textContent = `Player Score: ${scorePL}`;
-  } else if (yourPlay == "scissors" && choice == "rock") {
-    h1.textContent = "Computer Wins!";
-    scorePC++;
-    scorePc.textContent = `PC Score: ${scorePC}`;
+    scorePLcount++;
+    scorePl.textContent = `Your Score: ${scorePLcount}`;
+  }else{
+    h1.textContent = "Computer Wins!!";
+    scorePCcount++;
+    scorePc.textContent = `PC Score: ${scorePCcount}`;
+
   }
-  if (scorePC == 5 || scorePL == 5) {
+  if (scorePCcount == 5 || scorePLcount == 5) {
     btns[0].disabled = true;
     btns[1].disabled = true;
     btns[2].disabled = true;
-    if (scorePC == 5) h1.textContent = "PC Beats Player!! - Reset";
-    else if (scorePL == 5) h1.textContent = " Player beats PC! - Reset";
+    if (scorePCcount == 5) h1.textContent = "PC Beat You!! - Reset";
+    else if (scorePLcount == 5) h1.textContent = " You beat PC! - Reset";
   }
 }
