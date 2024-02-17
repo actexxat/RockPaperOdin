@@ -1,5 +1,5 @@
 body{
-    background-image: url(static/pattern.jpg);
+    background-image: url(pattern.jpg);
     background-size:20em;
 }
 
@@ -23,7 +23,7 @@ h1{
 }
 
 .rock{
-    background-image: url(static/rock.jpg);
+    background-image: url(rock.jpg);
     border-radius: 12px;
     width: 7em;
     height: 7em;
@@ -35,7 +35,7 @@ h1{
 
 
 .paper{
-    background-image: url(static/paper.jpg);
+    background-image: url(paper.jpg);
     width: 7em;
     height: 7em;
     background-size: cover;
@@ -45,7 +45,7 @@ h1{
 
 
 .scissors{
-    background-image: url(static/scissors.jpg);
+    background-image: url(scissors.jpg);
     width: 7em;
     height: 7em;
     background-size:cover;

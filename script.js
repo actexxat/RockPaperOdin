@@ -1,11 +1,11 @@
 "use strict";
 let scorePCcount = 0;
 let scorePLcount = 0;
-let scorePc = document.getElementsByTagName("h2")[0];
-let scorePl = document.getElementsByTagName("h2")[1];
-const btns = document.getElementsByTagName("button");
-const h1 = document.getElementsByTagName("h1")[0];
-const reset = document.querySelector(".reset");
+let scorePc = document.getElementsByClassName("pc-score")[0];
+let scorePl = document.getElementsByClassName("player-score")[0]
+const BTNS = document.getElementsByTagName("button");
+const TITLE = document.getElementsByTagName("h1")[0];
+const RESET = document.querySelector(".reset");
 
 const WIN = {
   'rock': 'scissors',
@@ -14,18 +14,20 @@ const WIN = {
 }
 
 
-Array.from(btns).forEach((btn) => btn.addEventListener("click", playerChoice));
-reset.addEventListener("click", resetGame);
+Array.from(BTNS).forEach((btn) => btn.addEventListener("click", playerChoice));
+RESET.addEventListener("click", resetGame);
 
 function resetGame() {
-  btns[0].disabled = false;
-  btns[1].disabled = false;
-  btns[2].disabled = false;
+  BTNS[0].disabled = false;
+  BTNS[1].disabled = false;
+  BTNS[2].disabled = false;
   scorePCcount = 0;
   scorePLcount = 0;
-  scorePc.textContent = "-";
-  scorePl.textContent = "-";
-  h1.textContent = "Game On!";
+  scorePc.textContent = 0;
+  scorePl.textContent = 0;
+  TITLE.textContent = "Game On!";
+  TITLE.style.color = 'black'
+
 }
 
 function playerChoice(event) {
@@ -42,24 +44,30 @@ function picker() {
 }
 function game(yourPlay) {
   picker();
-  console.log(choice, yourPlay);
   if (yourPlay == choice) {
-    h1.textContent = "Draw";
+    TITLE.textContent = "Draw";
   } else if (WIN[yourPlay] ==  choice) {
-    h1.textContent = "You Win!!";
+    TITLE.textContent = "You Win!!";
     scorePLcount++;
-    scorePl.textContent = `Your Score: ${scorePLcount}`;
+    scorePl.textContent = scorePLcount;
   }else{
-    h1.textContent = "Computer Wins!!";
+    TITLE.textContent = "Computer Wins!!";
     scorePCcount++;
-    scorePc.textContent = `PC Score: ${scorePCcount}`;
+    scorePc.textContent = scorePCcount;
 
   }
   if (scorePCcount == 5 || scorePLcount == 5) {
-    btns[0].disabled = true;
-    btns[1].disabled = true;
-    btns[2].disabled = true;
-    if (scorePCcount == 5) h1.textContent = "PC Beat You!! - Reset";
-    else if (scorePLcount == 5) h1.textContent = " You beat PC! - Reset";
+    BTNS[0].disabled = true;
+    BTNS[1].disabled = true;
+    BTNS[2].disabled = true;
+    if (scorePCcount == 5){
+      TITLE.textContent = "You Lost :( !!";
+      TITLE.style.color = 'red'
+    } 
+    else if (scorePLcount == 5) {
+      TITLE.textContent = " You Won!!!";
+      TITLE.style.color = 'green'
+
+    }
   }
 }
