@@ -11,22 +11,50 @@
     <div class="container">
       <h1>Game On!</h1>
       <div class="scores">
-        <span class="">PC</span>
-        <span class="pc-score"> 0 </span>
+        <div id="score-left-pc">
+          <span class="">PC</span>
+          <br>
+          <span class="pc-score"> 0 </span>
+        </div>
         <span> - </span>
-        <span class="player-score">0</span>
-        <span class="">You</span>
+        <div id="score-right-player"> 
+          <span class="">You</span>
+          <br>
+          <span class="player-score">0</span>
+        </div>
       </div>
+
       <div class="choices">
-        <button class="rock"></button>
-        <button class="paper"></button>
-        <button class="scissors"></button>
+        <div id="rock">
+          <model-viewer src="static/rock_b.glb" alt="3d rock source : azzajess@sketchfab" auto-rotate=""  background-color="#455A64" minimumRenderScale="2">
+          </model-viewer>
+        </div>
+        <div id="paper">
+          <model-viewer src="static/paper_stack.glb" alt="3d paper-stack source: Vivify Productions@sketchfab" auto-rotate=""  background-color="#455A64" >
+          </model-viewer>
+        </div>
+        <div id="scissors">
+          <model-viewer src="static/scissors_small.glb" alt="3d scissors source:MamuteBionico@sketchfab" auto-rotate=""  background-color="#455A64">
+          </model-viewer>
+        </div>
       </div>  
+
       <button class="reset">Restart</button>
     </div>  
+    <div class="credit">3D models provided by:
+      <p>Rock model: azzajess@sketchfab</p>
+      <p>Paper model: Vivify Productions@sketchfab</p>
+      <p>Scissors model: MamuteBionico@sketchfab</p>
+    </div>
     <footer>
       <p>  ♥ The Odin Project  ♥</p>
     </footer>
+
       <script src="script.js"></script>
+
+      <!-- Loads model-viewer for modern browsers -->
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+      <!-- Loads model-viewer for older browsers -->
+      <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
   </body>
 </html>

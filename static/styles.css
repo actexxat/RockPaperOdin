@@ -1,8 +1,13 @@
-body{
-    background-image: url(pattern.jpg);
-    background-size:20em;
-}
+html {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    height: 100%;
 
+    background: linear-gradient(to top, #001f3f, pink);
+  }
 h1{
     text-align: center;
 }
@@ -11,7 +16,7 @@ h1{
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     border: 1px solid grey;
     border-radius: 8px;
@@ -19,54 +24,35 @@ h1{
 }
 
 .scores{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#score-left-pc, #score-right-player{
+    width: 10%;
+    padding: 2em;
     text-align: center;
+    border: 1px solid gray;
+    border-radius: 1em;
+    background-color: gray;
 }
-
-.rock{
-    background-image: url(rock.jpg);
-    border-radius: 12px;
-    width: 7em;
-    height: 7em;
-    background-size: cover;
-    border: none;
-    
-
+#rock, #paper, #scissors{
+    border: 1px solid black;
 }
 
 
-.paper{
-    background-image: url(paper.jpg);
-    width: 7em;
-    height: 7em;
-    background-size: cover;
-    border: none;
-
-}
-
-
-.scissors{
-    background-image: url(scissors.jpg);
-    width: 7em;
-    height: 7em;
-    background-size:cover;
-    border: none;
-
-
-}
 
 
 .choices{
-    display: flex;
-    justify-content: center;
-    padding:2em 2em;
-    gap: 1em;
-    width: 70%;
-    margin: 0 auto;
-    
+    position: relative;
+    margin: 1em;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
 }
 
 .reset{
-
     margin: 0 auto;
 }
 
@@ -81,4 +67,18 @@ footer{
     bottom: 0;
     width: 100%;
     
+}
+
+
+model-viewer:hover{
+    filter: brightness(80%);
+    transform: scale(1.1); /* You can adjust the scale factor as needed */
+}
+
+
+
+.credit{
+    font:300 10px Arial ;
+    width: 80%;
+    margin: 0 auto;
 }
