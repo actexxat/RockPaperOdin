@@ -25,11 +25,14 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: black;
 }
 
 #score-left-pc, #score-right-player{
     width: 10%;
-    padding: 2em;
+    padding: 1em;
     text-align: center;
     border: 1px solid gray;
     border-radius: 1em;
@@ -72,8 +75,8 @@ model-viewer:hover{
     transform: scale(1.1); /* You can adjust the scale factor as needed */
 }
 model-viewer{
-    max-width: 33vw;
-    min-width: 250px;
+    max-width: 20vw;
+    min-width: 150px;
 }
 
 .credit{
@@ -88,6 +91,8 @@ model-viewer{
     border: 1px solid grey;
     border-radius: 1em;
     padding: 1em;
-    min-width:12%; 
+    min-width:22%; 
+    color: whitesmoke;
     text-align: center;
 }
+

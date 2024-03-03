@@ -96,3 +96,6 @@ function game(yourPlay) {
 }
 
 
+setTimeout(  (e)=>{
+  Array.prototype.slice.call(document.getElementsByTagName("model-viewer")).forEach((elnt)=>{elnt.setAttribute("scale","0.70.70.7")}) 
+}, 1500 )
