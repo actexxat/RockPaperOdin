@@ -1,23 +1,21 @@
-html {
-    height: 100%;
-  }
-  
-  body {
+body {
     margin: 0;
-    height: 100%;
-
     background: linear-gradient(to top, #001f3f, pink);
-  }
+}
 h1{
     text-align: center;
 }
 
+.base{
+    min-height: 100vh;
+
+}
 .container{
-    background-color: white;
+    background-color:whitesmoke;
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin: 0 auto;
+    margin: 3em auto;
     border: 1px solid grey;
     border-radius: 8px;
     padding: 1em;
@@ -35,10 +33,12 @@ h1{
     text-align: center;
     border: 1px solid gray;
     border-radius: 1em;
-    background-color: gray;
+    background-color: black;
+    color: wheat;
 }
 #rock, #paper, #scissors{
-    border: 1px solid black;
+    border: 1px solid grey;
+    border-radius: 1em;
 }
 
 
@@ -47,9 +47,10 @@ h1{
 .choices{
     position: relative;
     margin: 1em;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    justify-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:1em;
 }
 
 .reset{
@@ -57,14 +58,10 @@ h1{
 }
 
 footer{
-    height: 3em;
     background-color: antiquewhite;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
     
 }
@@ -74,11 +71,23 @@ model-viewer:hover{
     filter: brightness(80%);
     transform: scale(1.1); /* You can adjust the scale factor as needed */
 }
-
-
+model-viewer{
+    max-width: 33vw;
+    min-width: 250px;
+}
 
 .credit{
     font:300 10px Arial ;
     width: 80%;
     margin: 0 auto;
+}
+
+.choice-marker-pc, .choice-marker-player {
+
+    margin: 0 auto;
+    border: 1px solid grey;
+    border-radius: 1em;
+    padding: 1em;
+    min-width:12%; 
+    text-align: center;
 }

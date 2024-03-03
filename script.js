@@ -8,6 +8,8 @@ let scorePl = document.getElementsByClassName("player-score")[0]
 const TITLE = document.getElementsByTagName("h1")[0];
 const RESET = document.querySelector(".reset");
 
+const CHOICE_MARKER_PC = document.querySelector(".choice-marker-pc")
+const CHOICE_MARKER_PLAYER = document.querySelector(".choice-marker-player")
 
 const ROCK = document.getElementById("rock")
 const PAPER = document.getElementById("paper")
@@ -38,6 +40,8 @@ function resetGame() {
   TITLE.textContent = "Game On!";
   TITLE.style.color = 'black'
   OPTNS.forEach(x=>x.style.pointerEvents = '')
+  CHOICE_MARKER_PC.textContent = ''
+  CHOICE_MARKER_PLAYER.textContent = ''
 
 
 }
@@ -53,17 +57,24 @@ function picker() {
   let pick = choices[choiceNo];
   return pick;
 }
+
 function game(yourPlay) {
  let choice = picker();
+ CHOICE_MARKER_PC.textContent = choice
+ CHOICE_MARKER_PLAYER.textContent = yourPlay
  console.log(choice, yourPlay)
   if (yourPlay == choice) {
     TITLE.textContent = "Draw";
+    TITLE.style.color = "black";
   } else if (WIN[yourPlay] ==  choice) {
     TITLE.textContent = "You Win!!";
+    TITLE.style.color = 'green';
     scorePLcount++;
     scorePl.textContent = scorePLcount;
+    
   }else{
     TITLE.textContent = "Computer Wins!!";
+    TITLE.style.color = 'red';
     scorePCcount++;
     scorePc.textContent = scorePCcount;
 
@@ -71,7 +82,7 @@ function game(yourPlay) {
   if (scorePCcount == 5 || scorePLcount == 5) {
     if (scorePCcount == 5){
       TITLE.textContent = "You Lost :( !!";
-      TITLE.style.color = 'red'
+      TITLE.style.color = 'red';
       OPTNS.forEach(x=>x.style.pointerEvents = 'none')
 
     } 
