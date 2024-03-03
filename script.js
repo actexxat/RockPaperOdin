@@ -8,8 +8,8 @@ let scorePl = document.getElementsByClassName("player-score")[0]
 const TITLE = document.getElementsByTagName("h1")[0];
 const RESET = document.querySelector(".reset");
 
-const CHOICE_MARKER_PC = document.querySelector(".choice-marker-pc")
-const CHOICE_MARKER_PLAYER = document.querySelector(".choice-marker-player")
+// const CHOICE_MARKER_PC = document.querySelector(".choice-marker-pc")
+// const CHOICE_MARKER_PLAYER = document.querySelector(".choice-marker-player")
 
 const ROCK = document.getElementById("rock")
 const PAPER = document.getElementById("paper")
@@ -40,8 +40,8 @@ function resetGame() {
   TITLE.textContent = "Game On!";
   TITLE.style.color = 'black'
   OPTNS.forEach(x=>x.style.pointerEvents = '')
-  CHOICE_MARKER_PC.textContent = ''
-  CHOICE_MARKER_PLAYER.textContent = ''
+  // CHOICE_MARKER_PC.textContent = ''
+  // CHOICE_MARKER_PLAYER.textContent = ''
 
 
 }
@@ -60,8 +60,8 @@ function picker() {
 
 function game(yourPlay) {
  let choice = picker();
- CHOICE_MARKER_PC.textContent = choice
- CHOICE_MARKER_PLAYER.textContent = yourPlay
+//  CHOICE_MARKER_PC.textContent = choice
+//  CHOICE_MARKER_PLAYER.textContent = yourPlay
  console.log(choice, yourPlay)
   if (yourPlay == choice) {
     TITLE.textContent = "Draw";
@@ -69,12 +69,15 @@ function game(yourPlay) {
   } else if (WIN[yourPlay] ==  choice) {
     TITLE.textContent = "You Win!!";
     TITLE.style.color = 'green';
+    change_looks(document.getElementById(choice), 'red')
     scorePLcount++;
     scorePl.textContent = scorePLcount;
     
   }else{
     TITLE.textContent = "Computer Wins!!";
     TITLE.style.color = 'red';
+    change_looks(document.getElementById(choice), 'green')
+
     scorePCcount++;
     scorePc.textContent = scorePCcount;
 
@@ -99,3 +102,11 @@ function game(yourPlay) {
 setTimeout(  (e)=>{
   Array.prototype.slice.call(document.getElementsByTagName("model-viewer")).forEach((elnt)=>{elnt.setAttribute("scale","0.70.70.7")}) 
 }, 1500 )
+
+
+
+function change_looks(obj, color){
+  obj.style.backgroundColor = color;
+  setTimeout(e=>{obj.style.backgroundColor = 'whitesmoke'}, 600)
+
+}

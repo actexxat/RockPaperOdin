@@ -45,8 +45,6 @@ h1{
 }
 
 
-
-
 .choices{
     position: relative;
     margin: 1em;
@@ -73,6 +71,9 @@ footer{
 model-viewer:hover{
     filter: brightness(80%);
     transform: scale(1.1); /* You can adjust the scale factor as needed */
+    background-color: beige;
+    border: 1px solid grey;
+    border-radius: 1em;
 }
 model-viewer{
     max-width: 20vw;
